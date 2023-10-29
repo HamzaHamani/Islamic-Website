@@ -1,0 +1,24 @@
+html {
+  cursor: default;
+}
+.flex1 li h4 {
+  border-radius: 150%;
+  width: 30px;
+  height: 26px;
+  text-align: center;
+  background-color: #009e85;
+  font-size: 1.8rem;
+  color: white;
+}
+.flex1 {
+  margin-top: 1rem;
+  /* padding: 1rem; */
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+.flex1 li {
+  background-color: white;
+  border-radius: 3%;
+}

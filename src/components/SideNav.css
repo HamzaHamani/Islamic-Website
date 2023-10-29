@@ -1,0 +1,18 @@
+:root {
+  --primary: "#3AB6AA";
+  --secondart: "#7CC695";
+  --accent: "#185D61";
+  --bgsoft: "#ECF0F3";
+  --bgconteiner: "#FBFBFB";
+}
+
+html {
+  cursor: pointer;
+}
+.motionButton {
+  background-color: #fbfbfb;
+}
+
+.motionContainer {
+  background-color: #185d61;
+}

@@ -1,0 +1,89 @@
+@font-face {
+  font-family: "Avant Grade Book BT";
+  font-style: normal;
+  font-weight: normal;
+  src: url(../../public/fonts/avgardd.ttf);
+}
+html {
+  cursor: none;
+}
+:root {
+  --primary: "#3AB6AA";
+  --secondart: "#7CC695";
+  --accent: "#185D61";
+  --bgsoft: "#091010";
+  --bgconteiner: "#FBFBFB";
+}
+
+.div {
+  background-color: var(--bgsoft);
+  width: 73%;
+  /* position: relative; */
+}
+.log {
+  font-family: "Poppins";
+  font-size: 10rem;
+  color: #185d61;
+}
+.container {
+  /* background-color: red; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.firstText {
+  color: #222;
+  font-size: 7.5rem;
+  /* background-color: red; */
+  font-family: "Avant Grade Book BT";
+  width: 110rem;
+  /* text-align:    center; */
+
+  font-weight: bold;
+}
+.secondText {
+  font-family: "Avant Grade Book BT";
+  font-weight: bold;
+  position: absolute;
+  /* top: 48%; */
+  mask-image: url(../../public/mask.svg);
+  background-color: #ffc94a;
+  /* height: 100%; */
+  /* top: -30px; */
+  /* left: -52rem; */
+  /* width: 137.1%; */
+  line-height: 12rem;
+  width: 105%;
+  z-index: 0;
+  height: 100vh;
+  mask-size: 3.2rem;
+  text-align: center;
+  mask-repeat: no-repeat;
+}
+.secondText h1 {
+  font-size: 9rem;
+  margin-left: 5rem;
+  margin-top: 30rem;
+  /* background-color: red; */
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #111;
+  cursor: none;
+}
+/* .cursor {
+  position: absolute;
+  content: "";
+  width: 80px;
+  border-radius: 50%;
+  height: 80px;
+  background-color: black;
+} */
+.color {
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  /* color: #2ebcc4; */
+}

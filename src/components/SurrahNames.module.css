@@ -1,0 +1,12 @@
+.li {
+  /* font-family: "Poppins"; */
+}
+.li div {
+  /* background-color: yellow; */
+  width: 100%;
+}
+.arab {
+  display: flex;
+  /* background-color: red; */
+  justify-content: flex-end;
+}
