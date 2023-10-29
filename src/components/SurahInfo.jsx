@@ -1,5 +1,7 @@
 import { data } from "autoprefixer";
 import { useState } from "react";
+import { FixedSizeList } from "react-window";
+
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 // import {
@@ -15,36 +17,52 @@ import { useSearchParams } from "react-router-dom";
 
 function SurahInfo() {
   const [searchP, setSearchP] = useSearchParams();
+  //   const clickedSurah = searchParams.get("");
 
   const clickedSurah = searchP.get("surah");
+  console.log(clickedSurah);
   const [surah, setSurah] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [btn1, setBtn1] = useState(false);
-  const [btn2, setBtn2] = useState(false);
-  const [btn3, setBtn3] = useState(false);
-  const [showUrl, setShowUrl] = useState(false);
+  // const [btn1, setBtn1] = useState(false);
+  // const [btn2, setBtn2] = useState(false);
+  // const [btn3, setBtn3] = useState(false);
+  // const [showUrl, setShowUrl] = useState(false);
+  const [fetchedSurahs, setFetchedSurahs] = useState();
+  // const [clickedSurah, setClickedSurah] = useState(""); // Set the initial value as needed
 
   useEffect(() => {
+    // const { surah } = useSearchParams();
+
     async function Fetch() {
       try {
         setLoading(false);
+
         const res = await fetch(
           `https://api.alquran.cloud/v1/surah/${clickedSurah}`
         );
         const data = await res.json();
+        // console.log(clickedSurah);
+        // console.log(data.data);
 
-        setSurah(data.data.ayahs);
-        console.log(surah);
+        setSurah(data.data);
+        // console.log(surah);
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     }
+    // console.log(clickedSurah);
+    console.log(surah);
+    if (clickedSurah == surah?.number) console.log("yes");
+    // console.log(surah.number);
+    // console.log(clickedSurah);
+
     Fetch();
   }, [clickedSurah]);
 
+  // console.log(surah);
   async function copySiteUrl() {
     try {
       const siteUrl = window.location.href;
@@ -59,13 +77,14 @@ function SurahInfo() {
   //! make container for info and for surahs
   if (loading) return <Loader />;
   {
-    surah?.map((item) => {
+    surah?.ayahs?.map((item) => {
+      // console.log(item.text);
       return (
-        <motion.div className={styles.wrapper} key={Date.now()}>
+        <motion.div className={styles.wrapper} key={item.text}>
           <div className={styles.container}>
             <div className={styles.first}>
               <p>1:1</p>
-              <h2>سشيشيشيشيشسي</h2>
+              <h2>{item.text}</h2>
             </div>
             <div className={styles.second}>
               <div>
@@ -104,6 +123,27 @@ function SurahInfo() {
       );
     });
   }
+}
+
+function MyList(props) {
+  const { itemCount, itemSize, height, width } = props;
+
+  const Row = ({ index, style }) => (
+    <div style={style}>
+      {/* Render your list item here using data[index] */}
+    </div>
+  );
+
+  return (
+    <FixedSizeList
+      height={height}
+      width={width}
+      itemCount={itemCount}
+      itemSize={itemSize}
+    >
+      {Row}
+    </FixedSizeList>
+  );
 }
 
 export default SurahInfo;
